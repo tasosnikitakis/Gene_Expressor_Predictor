@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Expression Cancer Classifier</title>
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
+    <!-- Link to Chart.js library for plotting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cancer Type Classification</h1>
+            <p>Based on Gene Expression (RNA-Seq) Data</p>
+        </header>
+
+        <main>
+            <!-- Section for the PCA Scatter Plot -->
+            <section class="card">
+                <h2>PCA Visualization of Cancer Types</h2>
+                <p>This plot shows the 801 samples projected onto the first two principal components. Distinct clusters indicate that the model can separate the different cancer types.</p>
+                <div class="chart-container">
+                    <canvas id="pcaChart"></canvas>
+                </div>
+                <div id="loading-chart" class="loading-indicator">Loading Chart Data...</div>
+            </section>
+
+            <!-- Section for Live Predictions -->
+            <section class="card">
+                <h2>Live Model Prediction</h2>
+                <p>Click the button to select a random sample from the dataset and see the model's prediction.</p>
+                <button id="predict-button">Predict Random Sample</button>
+                <div id="prediction-result" class="result-box" style="display: none;">
+                    <div id="loading-prediction" class="loading-indicator" style="display: none;">Predicting...</div>
+                    <div id="result-content">
+                        <h3>Prediction Result:</h3>
+                        <p><strong>Sample ID:</strong> <span id="sample-name"></span></p>
+                        <p><strong>Model's Prediction:</strong> <span id="predicted-class" class="badge"></span></p>
+                        <p><strong>True Class:</strong> <span id="true-class" class="badge"></span></p>
+                        <p id="result-match"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>A Django & Scikit-learn Showcase Project</p>
+        </footer>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="{% static 'predictor/js/main.js' %}"></script>
+</body>
+</html>
