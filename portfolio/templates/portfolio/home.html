@@ -1,0 +1,39 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}John Doe | Portfolio{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-text">
+        <h1>Hi, I'm John Doe</h1>
+        <p class="subtitle">A developer passionate about the intersection of bioinformatics, machine learning, and web technology.</p>
+        <a href="#projects" class="cta-button">View My Work</a>
+    </div>
+</div>
+
+<div class="about-section">
+    <h2>About Me</h2>
+    <p>I am a detail-oriented developer with a background in biological sciences. I enjoy building tools that solve complex problems, from analyzing genomic data to creating intuitive user interfaces. My goal is to leverage my skills in software development to contribute to meaningful scientific advancements.</p>
+</div>
+
+<div class="projects-section" id="projects">
+    <h2>Featured Project</h2>
+    <div class="project-card">
+        <div class="project-image">
+            <img src="https://placehold.co/600x400/34495e/ecf0f1?text=Cancer+Classifier" alt="Project Screenshot">
+        </div>
+        <div class="project-info">
+            <h3>{{ project_title }}</h3>
+            <p>{{ project_description }}</p>
+            <div class="project-tags">
+                <span>Django</span>
+                <span>Scikit-learn</span>
+                <span>Pandas</span>
+                <span>Bioinformatics</span>
+            </div>
+            <a href="{{ project_link }}" class="project-button">View Live Application</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

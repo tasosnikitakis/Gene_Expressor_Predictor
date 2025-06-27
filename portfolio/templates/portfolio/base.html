@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}John Doe | Bioinformatics & Web Dev{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'portfolio/style.css' %}">
+</head>
+<body>
+    <div class="page-container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="/">JD</a>
+            </div>
+            <div class="nav-links">
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+                <a href="https://github.com/your-username" target="_blank">GitHub</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+
+        <main class="content-wrap">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <p>&copy; {% now "Y" %} John Doe. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
