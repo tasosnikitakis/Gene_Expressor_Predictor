@@ -19,18 +19,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-development-key')
 DEBUG = not IS_PRODUCTION
 
 # --- Allowed Hosts & CSRF ---
-if IS_PRODUCTION:
-    # Get the public domain from Railway's environment variable
-    RAILWAY_DOMAIN = os.environ.get('RAILWAY_PUBLIC_DOMAIN')
-    
-    # Add the domain to ALLOWED_HOSTS. We also add a wildcard for subdomains as a fallback.
-    ALLOWED_HOSTS = [RAILWAY_DOMAIN, f".{RAILWAY_DOMAIN}"]
-    
-    # Add the domain to CSRF_TRUSTED_ORIGINS for secure requests.
-    CSRF_TRUSTED_ORIGINS = [f"https://{RAILWAY_DOMAIN}"]
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-    CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ['web-production-8174.up.railway.app', 'https://web-production-8174.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-8174.up.railway.app']
 
 # Application definition
 
