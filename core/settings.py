@@ -6,20 +6,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# --- Production/Development Settings ---
+# Use an environment variable to determine if we are in production
+# In Railway, you will set this variable to 'True'
+IS_PRODUCTION = os.environ.get('IS_PRODUCTION', 'False') == 'True'
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# --- SECURITY WARNINGS ---
+# On Railway, you will set this as an environment variable.
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-development-key')
 
-
-IS_PRODUCTION = os.environ.get('IS_PRODUCTION', 'False') == 'True'
-# SECURITY WARNING: don't run with debug turned on in production!
+# Don't run with debug turned on in production!
 DEBUG = not IS_PRODUCTION
-
-
-
 
 # --- Allowed Hosts ---
 if IS_PRODUCTION:
@@ -27,7 +24,6 @@ if IS_PRODUCTION:
     ALLOWED_HOSTS = [os.environ.get('RAILWAY_PUBLIC_DOMAIN', '.railway.app')]
 else:
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
 
 # Application definition
 
