@@ -23,8 +23,8 @@ DEBUG = not IS_PRODUCTION
 
 # --- Allowed Hosts ---
 if IS_PRODUCTION:
-    # On Railway, the RAILWAY_STATIC_URL variable will contain your app's domain
-    ALLOWED_HOSTS = [os.environ.get('RAILWAY_STATIC_URL', '.railway.app')]
+    # On Railway, the RAILWAY_PUBLIC_DOMAIN variable contains your app's domain.
+    ALLOWED_HOSTS = [os.environ.get('RAILWAY_PUBLIC_DOMAIN', '.railway.app')]
 else:
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
