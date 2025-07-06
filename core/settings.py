@@ -19,8 +19,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-development-key')
 DEBUG = not IS_PRODUCTION
 
 # --- Allowed Hosts & CSRF ---
-ALLOWED_HOSTS = ['web-production-8174.up.railway.app', 'https://web-production-8174.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://web-production-8174.up.railway.app']
+ALLOWED_HOSTS = ['web-production-8174.up.railway.app', 'https://web-production-8174.up.railway.app', 'www.tasosnikitakis.com', 'https://www.tasosnikitakis.com']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-8174.up.railway.app', 'https://www.tasosnikitakis.com']
+
+
 
 # Application definition
 
